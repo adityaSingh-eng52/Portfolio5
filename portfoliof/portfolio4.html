@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Kumar Singh | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Styles */
+        :root {
+            --bg-color: #0d0d0d;
+            --text-main: #ffffff;
+            --text-muted: #a1a1aa;
+            --card-bg: #1a1a1a;
+            --border-color: #333333;
+            
+            /* Colorful text colors */
+            --color-1: #ef4444; /* Red */
+            --color-2: #3b82f6; /* Blue */
+            --color-3: #0ea5e9; /* Light Blue */
+            --color-4: #eab308; /* Yellow */
+            --color-5: #a855f7; /* Purple */
+            --color-6: #ec4899; /* Pink */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-muted);
+            transform: translateY(-2px);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 0;
+            min-height: 70vh;
+        }
+
+        .hero-content {
+            max-width: 50%;
+            animation: fadeInLeft 1s ease-out forwards;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero .greeting {
+            display: block;
+        }
+
+        /* Waving Hand Animation */
+        .waving-hand {
+            display: inline-block;
+            animation: wave 2.5s infinite;
+            transform-origin: 70% 70%;
+        }
+
+        @keyframes wave {
+            0% { transform: rotate( 0.0deg) }
+            10% { transform: rotate(14.0deg) }
+            20% { transform: rotate(-8.0deg) }
+            30% { transform: rotate(14.0deg) }
+            40% { transform: rotate(-4.0deg) }
+            50% { transform: rotate(10.0deg) }
+            60% { transform: rotate( 0.0deg) }
+            100% { transform: rotate( 0.0deg) }
+        }
+
+        /* Colored Text Classes */
+        .c-red { color: var(--color-1); }
+        .c-blue { color: var(--color-2); }
+        .c-lblue { color: var(--color-3); }
+        .c-yellow { color: var(--color-4); }
+        .c-purple { color: var(--color-5); }
+        .c-pink { color: var(--color-6); }
+
+        .hero p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-btn {
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--border-color);
+        }
+
+        .social-btn:hover {
+            background-color: #2a2a2a;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+            color: var(--color-3);
+        }
+
+        .hero-image {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            background-color: #2a2a2a;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+            animation: fadeInRight 1s ease-out forwards;
+        }
+
+        /* Floating Avatar Animation */
+        .hero-image img {
+            width: 80%;
+            height: auto;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Section Headings */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-divider {
+            border-top: 1px dashed var(--border-color);
+            margin: 40px 0;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 50px 0;
+        }
+        
+        .about-text {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+
+        .about-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 20px 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .about-details:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .education-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .education-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .resume-btn {
+            background-color: var(--text-main);
+            color: var(--bg-color);
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .resume-btn:hover {
+            background-color: #d1d5db;
+            transform: scale(1.05);
+        }
+
+        /* Experience Section */
+        .experience-section {
+            padding: 50px 0;
+        }
+
+        .exp-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            border-left: 2px solid var(--border-color);
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            transition: transform 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--text-main);
+            border-radius: 50%;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .timeline-item:hover::before {
+            background-color: var(--color-2);
+            transform: scale(1.5);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .timeline-title h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .badge {
+            background-color: rgba(255,255,255,0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .timeline-item:hover .badge {
+            background-color: rgba(59, 130, 246, 0.2);
+            color: var(--color-3);
+        }
+
+        .timeline-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .timeline-content {
+            color: var(--text-muted);
+        }
+
+        .timeline-content ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .timeline-content li {
+            margin-bottom: 8px;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            background-color: #2a2a2a;
+            color: var(--text-muted);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background-color: var(--text-main);
+            color: var(--bg-color);
+            transform: translateY(-2px);
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 50px 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--text-muted);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        /* 🔽 ICONS KA SIZE YAHAN CHOTA KIYA HAI 🔽 */
+        .skill-card i {
+            font-size: 1.5rem; /* Pehle 2rem tha */
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover i {
+            transform: scale(1.2);
+        }
+
+        .skill-card span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Brand Colors for Skills */
+        .fa-react { color: #61dafb; }
+        .fa-node-js { color: #339933; }
+        .fa-js { color: #f7df1e; }
+        .fa-html5 { color: #e34f26; }
+        .fa-css3-alt { color: #1572b6; }
+        .fa-java { color: #007396; }
+        .fa-git-alt { color: #f05032; }
+        .fa-github { color: #ffffff; }
+        .fa-database { color: #336791; }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 50px 0 100px 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            transition: color 0.3s;
+        }
+        
+        .project-card:hover .project-title {
+            color: var(--color-3);
+        }
+
+        .project-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .project-desc ul {
+            padding-left: 20px;
+        }
+
+        .project-desc li {
+            margin-bottom: 8px;
+        }
+
+        .project-tech {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .github-link {
+            color: var(--text-main); 
+            margin-top: 15px; 
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .github-link:hover {
+            color: var(--color-3);
+            transform: translateX(5px);
+        }
+
+        /* --- Scroll Animation Classes --- */
+        .hidden {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Staggered delays for grids/lists */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* Keyframes for initial load */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 0;
+            }
+            .hero-content {
+                max-width: 100%;
+                margin-bottom: 40px;
+                animation: fadeInDown 1s ease-out forwards;
+            }
+            .hero-image {
+                animation: fadeInUp 1s ease-out forwards;
+            }
+            .social-links {
+                justify-content: center;
+            }
+            .about-details {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            .timeline-header {
+                flex-direction: column;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <i class="fa-solid fa-user-tie"></i> ADITYA KUMAR SINGH
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fa-regular fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>
+                    <span class="greeting">Hi <span class="waving-hand">👋</span> !</span>
+                    I'm <span class="c-red">A</span><span class="c-blue">d</span><span class="c-lblue">i</span><span class="c-yellow">t</span><span class="c-purple">y</span><span class="c-pink">a</span>
+                </h1>
+                <p>Full Stack Developer crafting seamless user experiences. Specializing in modern web applications.</p>
+                <div class="social-links">
+                    <a href="mailto:aditya955584@gmail.com" class="social-btn"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" class="social-btn"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="social-btn"><i class="fa-solid fa-file-lines"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://cdn3d.iconscout.com/3d/premium/thumb/web-developer-4506461-3738664.png" alt="3D Avatar">
+            </div>
+        </section>
+
+        <section class="about-section scroll-element hidden" id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="section-divider"></div>
+            <p class="about-text">
+                Passionate Full Stack Developer 🚀. I build clean, responsive web apps using C, Java, JavaScript, HTML, CSS, React.js, React Native, Next.js, Node.js, Express.js, and NestJS. Interned at Vyorius Drones Pvt. Ltd, Finplify Technologies, and Fiyoh Solutions. I love creating smooth digital experiences ✨ and always aim to learn and grow 🚀.
+            </p>
+            <div class="about-details">
+                <div class="education-info">
+                    <h3>&lt;&gt; Master of Computer Applications</h3>
+                    <p><i class="fa-solid fa-building-columns"></i> Mahatma Gandhi Kashi Vidyapeeth</p>
+                </div>
+                <a href="#" class="resume-btn"><i class="fa-solid fa-file-pdf"></i> Resume</a>
+            </div>
+        </section>
+
+        <section class="experience-section scroll-element hidden" id="experience">
+            <h2 class="section-title">Experience.</h2>
+            <p class="exp-subtitle">I have worked on a variety of projects, from small personal projects to large scale applications.</p>
+            <div class="section-divider"></div>
+            
+            <div class="timeline">
+                <div class="timeline-item scroll-element hidden delay-1">
+                    <div class="timeline-header">
+                        <div class="timeline-title">
+                            <h3>Full Stack Developer <span class="badge">Internship</span></h3>
+                        </div>
+                    </div>
+                    <span class="timeline-date">Jan 2026 | Remote | at Vyorius Drones Pvt. Ltd</span>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Web development using HTML, CSS, and JavaScript.</li>
+                            <li>Worked on Java Full Stack modules.</li>
+                            <li>Improved overall UI and user experience.</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Java</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item scroll-element hidden delay-2">
+                    <div class="timeline-header">
+                        <div class="timeline-title">
+                            <h3>Front-end Developer <span class="badge">Internship</span></h3>
+                        </div>
+                    </div>
+                    <span class="timeline-date">Feb 2025 - Apr 2025 | Remote | at Finplify Technologies</span>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Enhanced user experience by developing and integrating new frontend features.</li>
+                            <li>Improved functionality and usability through feature implementation.</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item scroll-element hidden delay-3">
+                    <div class="timeline-header">
+                        <div class="timeline-title">
+                            <h3>Front-end Developer <span class="badge">Internship</span></h3>
+                        </div>
+                    </div>
+                    <span class="timeline-date">Jan 2025 | Remote | at Fiyoh Solutions</span>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Developed Meraqui company website using React.js and Tailwind CSS.</li>
+                            <li>Optimized performance and improved user experience.</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section scroll-element hidden" id="skills">
+            <h2 class="section-title">Skills.</h2>
+            <div class="section-divider"></div>
+            <div class="skills-grid">
+                <div class="skill-card scroll-element hidden delay-1"><i class="fa-brands fa-react"></i><span>React.js</span></div>
+                <div class="skill-card scroll-element hidden delay-1"><i class="fa-brands fa-react" style="color:#fff;"></i><span>Next.js</span></div>
+                <div class="skill-card scroll-element hidden delay-1"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+                <div class="skill-card scroll-element hidden delay-1"><i class="fa-brands fa-java"></i><span>Java</span></div>
+                <div class="skill-card scroll-element hidden delay-2"><i class="fa-solid fa-c"></i><span>C</span></div>
+                <div class="skill-card scroll-element hidden delay-2"><i class="fa-brands fa-html5"></i><span>HTML5</span></div>
+                <div class="skill-card scroll-element hidden delay-2"><i class="fa-brands fa-css3-alt"></i><span>CSS3</span></div>
+                <div class="skill-card scroll-element hidden delay-2"><i class="fa-brands fa-node-js"></i><span>Node.js</span></div>
+                <div class="skill-card scroll-element hidden delay-3"><i class="fa-solid fa-server" style="color:#fff;"></i><span>Express.js</span></div>
+                <div class="skill-card scroll-element hidden delay-3"><i class="fa-solid fa-database"></i><span>MongoDB</span></div>
+                <div class="skill-card scroll-element hidden delay-3"><i class="fa-solid fa-database" style="color:#336791;"></i><span>PostgreSQL</span></div>
+                <div class="skill-card scroll-element hidden delay-3"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
+                <div class="skill-card scroll-element hidden delay-4"><i class="fa-brands fa-github"></i><span>GitHub</span></div>
+                <div class="skill-card scroll-element hidden delay-4"><i class="fa-brands fa-bootstrap" style="color:#7952b3;"></i><span>Bootstrap</span></div>
+            </div>
+        </section>
+
+        <section class="projects-section scroll-element hidden" id="projects">
+            <h2 class="section-title">Projects.</h2>
+            <div class="section-divider"></div>
+            <div class="projects-grid">
+                <div class="project-card scroll-element hidden delay-1">
+                    <div class="project-header">
+                        <h3 class="project-title">TravelPro</h3>
+                        <span class="project-date">May 2024</span>
+                    </div>
+                    <div class="project-desc">
+                        <ul>
+                            <li>Built a full-stack Tour & Travel website using REST APIs for booking and contact forms.</li>
+                            <li>Designed responsive UI using Flexbox and Grid.</li>
+                        </ul>
+                    </div>
+                    <p class="project-tech"><strong>Technologies Used:</strong> HTML5, CSS3, JavaScript, Node.js, Express.js</p>
+                    <a href="#" class="github-link"><i class="fa-brands fa-github"></i> GitHub Repository</a>
+                </div>
+
+                <div class="project-card scroll-element hidden delay-2">
+                    <div class="project-header">
+                        <h3 class="project-title">Product Manager (Dairy E-Commerce)</h3>
+                        <span class="project-date">Jan 2025</span>
+                    </div>
+                    <div class="project-desc">
+                        <ul>
+                            <li>Developed dynamic cart functionality with real-time subtotal and GST calculation.</li>
+                            <li>Implemented DOM manipulation and interactive UI features.</li>
+                        </ul>
+                    </div>
+                    <p class="project-tech"><strong>Technologies Used:</strong> HTML5, CSS3, JavaScript</p>
+                    <a href="#" class="github-link"><i class="fa-brands fa-github"></i> GitHub Repository</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const icon = themeToggleBtn.querySelector('i');
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (icon.classList.contains('fa-moon')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+                document.documentElement.style.setProperty('--bg-color', '#ffffff');
+                document.documentElement.style.setProperty('--text-main', '#111111');
+                document.documentElement.style.setProperty('--card-bg', '#f4f4f5');
+                document.documentElement.style.setProperty('--border-color', '#e4e4e7');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+                document.documentElement.style.setProperty('--bg-color', '#0d0d0d');
+                document.documentElement.style.setProperty('--text-main', '#ffffff');
+                document.documentElement.style.setProperty('--card-bg', '#1a1a1a');
+                document.documentElement.style.setProperty('--border-color', '#333333');
+            }
+        });
+
+        // Scroll Animation Logic using Intersection Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15 // Trigger when 15% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target); // Unobserve once animated to prevent repeating
+                }
+            });
+        }, observerOptions);
+
+        // Select all elements with the 'scroll-element' class
+        const scrollElements = document.querySelectorAll('.scroll-element');
+        scrollElements.forEach(el => observer.observe(el));
+
+    </script>
+</body>
+</html>
